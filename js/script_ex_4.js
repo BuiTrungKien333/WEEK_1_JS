@@ -1,17 +1,17 @@
-const val = document.getElementById("val");
+const CalcTip = (number) => {
+  return number * (number >= 50 && number <= 300 ? 0.15 : 0.2);
+};
 
-const btnCalc = document.getElementById("btn_calc");
+var bills = [125, 555, 44];
 
-btnCalc.addEventListener("click", (e) => {
-  e.preventDefault();
+var tips = bills.map((b) => CalcTip(b));
 
-  let bill = parseInt(val.value);
+var total = [];
 
-  let tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+for (let i = 0; i < bills.length; i++) {
+  total[i] = bills[i] + tips[i];
+}
 
-  console.log(
-    `“The bill was ${bill}, the tip was ${tip}, and the total value ${
-      bill + tip
-    }`
-  );
-});
+console.log(bills);
+console.log(tips);
+console.log(total);
